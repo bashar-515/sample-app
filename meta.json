@@ -1,0 +1,13 @@
+{
+  "module_id": "bashar-org:my-apps-module",
+  "visibility": "public",
+  "description": "This module tests Viam Apps.",
+  "applications": [
+    {
+      "name": "robot-name-app",
+      "type": "single_machine",
+      "entrypoint": "dist/index.html"
+    }
+  ]
+}
+
