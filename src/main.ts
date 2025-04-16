@@ -1,20 +1,20 @@
 import * as VIAM from "@viamrobotics/sdk";
 import Cookies from "js-cookie";
 
-const robotNameDivId = "robot-name";
-
-const robotNameDiv: HTMLElement | null = document.getElementById(robotNameDivId);
-
-if (!robotNameDiv) {
-  throw new Error(`Could not find HTML element with ID ${robotNameDivId}`);
-}
-
-let machineId = "";
-
 let apiKeyId = "";
 let apiKeySecret = "";
 
-(async () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const robotNameDivId = "robot-name";
+
+  const robotNameDiv: HTMLElement | null = document.getElementById(robotNameDivId);
+
+  if (!robotNameDiv) {
+    throw new Error(`Could not find HTML element with ID ${robotNameDivId}`);
+  }
+
+  let machineId = "";
+
   try {
     machineId = window.location.pathname.split("/")[2];
 
@@ -27,7 +27,7 @@ let apiKeySecret = "";
 
     robotNameDiv.textContent = "Could not retrieve robot. See console for more details";
   }
-})();
+});
 
 async function connect(): Promise<VIAM.ViamClient> {
   const opts: VIAM.ViamClientOptions = {
