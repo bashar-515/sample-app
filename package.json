@@ -13,6 +13,7 @@
     "vite": "^6.3.0"
   },
   "dependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@viamrobotics/sdk": "^0.40.1"
   }
 }
