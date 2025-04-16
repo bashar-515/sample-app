@@ -1,5 +1,5 @@
 {
-  "module_id": "bashar-org:my-apps-module",
+  "module_id": "app-org:my-apps-module",
   "visibility": "public",
   "description": "This module tests Viam Apps.",
   "applications": [
@@ -10,4 +10,3 @@
     }
   ]
 }
-
