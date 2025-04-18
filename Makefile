@@ -5,7 +5,7 @@ VERSION := 0.0.0
 ORG_PUBLIC_NAMESPACE := bashar
 
 create:
-	viam --base-url ${BASE_URL} module create --name=test-module --public-namespace=${ORG_PUBLIC_NAMESPACE}
+	viam --base-url ${BASE_URL} module create --name=my-apps-module --public-namespace=${ORG_PUBLIC_NAMESPACE}
 
 update:
 	viam --base-url ${BASE_URL} module update --module=meta.json

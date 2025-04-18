@@ -1,5 +1,5 @@
 {
-  "module_id": "my-bot:my-apps-module",
+  "module_id": "bashar:my-apps-module",
   "visibility": "public",
   "description": "This module tests a couple of Viam Apps.",
   "applications": [
