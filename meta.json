@@ -4,11 +4,6 @@
   "description": "This module tests Viam Apps.",
   "applications": [
     {
-      "name": "name",
-      "type": "single_machine",
-      "entrypoint": "module/apps/robot-name-app/dist/index.html"
-    },
-    {
       "name": "rojo",
       "type": "single_machine",
       "entrypoint": "module/apps/red/dist/index.html"
