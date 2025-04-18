@@ -1,24 +1,43 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import * as VIAM from "@viamrobotics/sdk";
+import Cookies from "js-cookie";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+let apiKeyId = "";
+let apiKeySecret = "";
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+document.addEventListener("DOMContentLoaded", async () => {
+  const robotNameDivId = "robot-name";
+
+  const robotNameDiv: HTMLElement | null = document.getElementById(robotNameDivId);
+
+  if (!robotNameDiv) {
+    throw new Error(`Could not find HTML element with ID ${robotNameDivId}`);
+  }
+
+  let machineId = "";
+
+  try {
+    machineId = window.location.pathname.split("/")[2];
+
+    ({ id: apiKeyId, key: apiKeySecret } = JSON.parse(Cookies.get(machineId)!));
+    const robot = await (await connect()).appClient.getRobot(machineId);
+
+    robotNameDiv.textContent = robot?.name ?? "Undefined";
+  } catch (error) {
+    console.log(error);
+
+    robotNameDiv.textContent = "Could not retrieve robot. See console for more details";
+  }
+});
+
+async function connect(): Promise<VIAM.ViamClient> {
+  const opts: VIAM.ViamClientOptions = {
+    serviceHost: "https://pr-8211-appmain-bplesliplq-uc.a.run.app/",
+    credentials: {
+      type: "api-key",
+      authEntity: apiKeyId,
+      payload: apiKeySecret,
+    },
+  };
+
+  return await VIAM.createViamClient(opts);
+}
