@@ -6,7 +6,17 @@
     {
       "name": "robot-name-app",
       "type": "single_machine",
-      "entrypoint": "dist/index.html"
+      "entrypoint": "module/apps/robot-name-app/dist/index.html"
+    },
+    {
+      "name": "red",
+      "type": "single_machine",
+      "entrypoint": "module/apps/red/dist/index.html"
+    },
+    {
+      "name": "blue",
+      "type": "single_machine",
+      "entrypoint": "module/apps/blue/dist/index.html"
     }
   ]
 }
