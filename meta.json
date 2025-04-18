@@ -1,7 +1,7 @@
 {
-  "module_id": "app-org:test-module",
+  "module_id": "my-bot:my-apps-module",
   "visibility": "public",
-  "description": "This module tests Viam Apps.",
+  "description": "This module tests a couple of Viam Apps.",
   "applications": [
     {
       "name": "rojo",

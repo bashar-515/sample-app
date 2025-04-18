@@ -1,8 +1,8 @@
 .PHONY: create update upload
 
 BASE_URL := https://pr-8211-appmain-bplesliplq-uc.a.run.app/
-VERSION := 0.1.2
-ORG_PUBLIC_NAMESPACE := app-org
+VERSION := 0.0.0
+ORG_PUBLIC_NAMESPACE := bashar
 
 create:
 	viam --base-url ${BASE_URL} module create --name=test-module --public-namespace=${ORG_PUBLIC_NAMESPACE}
