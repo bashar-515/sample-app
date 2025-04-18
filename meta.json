@@ -1,20 +1,20 @@
 {
-  "module_id": "app-org:my-apps-module",
+  "module_id": "app-org:test-module",
   "visibility": "public",
   "description": "This module tests Viam Apps.",
   "applications": [
     {
-      "name": "robot-name-app",
+      "name": "name",
       "type": "single_machine",
       "entrypoint": "module/apps/robot-name-app/dist/index.html"
     },
     {
-      "name": "red",
+      "name": "rojo",
       "type": "single_machine",
       "entrypoint": "module/apps/red/dist/index.html"
     },
     {
-      "name": "blue",
+      "name": "azul",
       "type": "single_machine",
       "entrypoint": "module/apps/blue/dist/index.html"
     }
