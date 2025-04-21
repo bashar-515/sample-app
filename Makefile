@@ -1,7 +1,7 @@
 .PHONY: create update upload
 
 BASE_URL := https://pr-8211-appmain-bplesliplq-uc.a.run.app/
-VERSION := 0.0.8
+VERSION := 0.0.0
 ORG_PUBLIC_NAMESPACE := bashar
 
 create:
