@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     throw new Error(`Could not find HTML element with ID ${robotNameDivId}`);
   }
 
+  robotNameDiv.addEventListener("click", () => {
+    window.location.href = "hello.html";
+  });
+
   let machineId = "";
 
   try {
