@@ -13,7 +13,10 @@ update:
 	#viam --base-url ${BASE_URL} module update --module=meta.json
 	viam module update --module=meta.json
 
-upload:
+upload: build
 	# viam --base-url ${BASE_URL} module upload --version=${VERSION} --platform=any --public-namespace=${ORG_PUBLIC_NAMESPACE} --force module
 	viam module upload --version=${VERSION} --platform=any --public-namespace=${ORG_PUBLIC_NAMESPACE} module
 
+build:
+	cd src/blue && npm run build
+	cd src/red && npm run build
