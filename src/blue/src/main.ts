@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function connect(): Promise<VIAM.ViamClient> {
   const opts: VIAM.ViamClientOptions = {
-    serviceHost: "https://pr-8211-appmain-bplesliplq-uc.a.run.app/",
+    serviceHost: "https://app.viam.com",
     credentials: {
       type: "api-key",
       authEntity: apiKeyId,
