@@ -1,15 +1,15 @@
 {
-  "module_id": "bashar:my-apps-module",
+  "module_id": "basharorg:my-apps-module",
   "visibility": "public",
   "description": "This module tests a couple of Viam Apps.",
   "applications": [
     {
-      "name": "rojo",
+      "name": "redbotname",
       "type": "single_machine",
       "entrypoint": "module/apps/red/dist/index.html"
     },
     {
-      "name": "azul",
+      "name": "bluebotname",
       "type": "single_machine",
       "entrypoint": "module/apps/blue/dist/index.html"
     }
