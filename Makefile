@@ -1,6 +1,6 @@
 .PHONY: create update upload build
 
-VERSION := 0.0.3
+VERSION := 1.0.0
 MODULE_NAME := my-apps-module
 ORG_PUBLIC_NAMESPACE := basharorg
 
