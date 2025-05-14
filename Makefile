@@ -13,7 +13,7 @@ update:
 	#viam --base-url ${BASE_URL} module update --module=meta.json
 	viam module update --module=meta.json
 
-upload:
+upload: build
 	# viam --base-url ${BASE_URL} module upload --version=${VERSION} --platform=any --public-namespace=${ORG_PUBLIC_NAMESPACE} --force module
 	
 	# 'force' flag is used to allow module to be uploaded without an entrypoint specified in the meta.json file
