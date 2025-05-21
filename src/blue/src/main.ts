@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 
 let apiKeyId = "";
 let apiKeySecret = "";
+let hostname = "";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const robotNameDivId = "robot-name";
@@ -22,10 +23,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     machineId = window.location.pathname.split("/")[2];
 
-    ({ id: apiKeyId, key: apiKeySecret } = JSON.parse(Cookies.get(machineId)!));
+    ({ id: apiKeyId, key: apiKeySecret, hostname: hostname } = JSON.parse(Cookies.get(machineId)!));
+
     const robot = await (await connect()).appClient.getRobot(machineId);
 
-    robotNameDiv.textContent = robot?.name ?? "Undefined";
+    robotNameDiv.textContent = robot?.name && hostname ? `${robot.name}: ${hostname}` : "Undefined";
   } catch (error) {
     console.log(error);
 
