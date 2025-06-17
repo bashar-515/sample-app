@@ -1,10 +1,6 @@
 import * as VIAM from "@viamrobotics/sdk";
 import Cookies from "js-cookie";
 
-let apiKeyId = "";
-let apiKeySecret = "";
-let hostname = "";
-
 document.addEventListener("DOMContentLoaded", async () => {
   const robotNameDivId = "robot-name";
 
@@ -18,14 +14,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "hello.html";
   });
 
-  let machineId = "";
-
   try {
-    machineId = window.location.pathname.split("/")[2];
+    let hostname = "";
+    let machineId = "";
+    let apiKeyId = "";
+    let apiKeySecret = ""
 
-    ({ id: apiKeyId, key: apiKeySecret, hostname: hostname } = JSON.parse(Cookies.get(machineId)!));
+    const machineInfo = window.location.pathname.split("/")[2];
 
-    const robot = await (await connect()).appClient.getRobot(machineId);
+    ({
+      apiKey: { id: apiKeyId, key: apiKeySecret },
+      machineId: machineId,
+      hostname: hostname,
+    } = JSON.parse(Cookies.get(machineInfo)!));
+    
+    const robot = await (await connect(apiKeyId, apiKeySecret)).appClient.getRobot(machineId);
 
     robotNameDiv.textContent = robot?.name && hostname ? `${robot.name}: ${hostname}` : "Undefined";
   } catch (error) {
@@ -35,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-async function connect(): Promise<VIAM.ViamClient> {
+async function connect(apiKeyId: string, apiKeySecret: string): Promise<VIAM.ViamClient> {
   const opts: VIAM.ViamClientOptions = {
     serviceHost: "https://app.viam.com",
     credentials: {

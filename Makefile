@@ -2,7 +2,7 @@
 
 VERSION := 1.0.0
 MODULE_NAME := my-apps-module
-ORG_PUBLIC_NAMESPACE := basharorg
+ORG_PUBLIC_NAMESPACE := bashar-prod
 
 create:
 	viam module create --name=${MODULE_NAME} --public-namespace=${ORG_PUBLIC_NAMESPACE}
