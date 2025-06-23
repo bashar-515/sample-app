@@ -11,8 +11,7 @@ update:
 	viam module update --module=meta.json
 
 upload: build
-	# 'force' flag is used to allow module to be uploaded without an entrypoint specified in the meta.json file
-	viam module upload --version=${VERSION} --platform=any --public-namespace=${ORG_PUBLIC_NAMESPACE} --force module
+	viam module upload --version=${VERSION} --platform=any --public-namespace=${ORG_PUBLIC_NAMESPACE} module
 
 build:
 	cd src/blue && npm run build
