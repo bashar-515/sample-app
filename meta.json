@@ -13,5 +13,8 @@
       "type": "single_machine",
       "entrypoint": "module/apps/blue/dist/index.html"
     }
-  ]
+  ],
+  "build": {
+    "build": "make build"
+  }
 }
